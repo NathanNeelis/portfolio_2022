@@ -1,6 +1,13 @@
-import Project from '../project/project'
+import Project from '../project/Project'
 
-export default function Projects() {
+interface Props {
+    data: any;
+}
+
+export default function Projects(props: Props) {
+    const { data } = props;
+    const { devProjects } = data;
+
     return (
         <section>
             <header>
@@ -8,7 +15,11 @@ export default function Projects() {
             </header>
 
             {/* webdev projects  */}
-            <Project />
+            {devProjects.map(project => (
+                <Project data={project} />
+                // <div key={project.sys.id}>{project.fields.title}</div>
+            ))}
+
 
             {/* ux projects  */}
         </section>

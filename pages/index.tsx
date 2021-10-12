@@ -4,8 +4,32 @@ import HeadWrapper from '../view/components/headWrapper/HeadWrapper';
 import Header from '../view/components/header/Header';
 import Introduction from '../view/components/introduction/Introduction';
 import Projects from '../view/components/projects/Projects';
+import { createClient } from 'contentful';
 
-const Home: NextPage = () => {
+export async function getStaticProps() {
+
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCES_TOKEN,
+  })
+
+  const res = await client.getEntries({ content_type: "developmentProjects" })
+
+  return {
+    props: {
+      devProjects: res.items,
+    }
+  }
+}
+
+interface Props {
+  data: any;
+}
+
+
+export default function Recipes(devProjects: Props) {
+  console.log(devProjects)
+
   return (
     <body>
       <HeadWrapper />
@@ -14,7 +38,7 @@ const Home: NextPage = () => {
 
       <main>
         <Introduction />
-        <Projects />
+        <Projects data={devProjects} />
       </main>
 
       <footer>
@@ -24,4 +48,3 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home

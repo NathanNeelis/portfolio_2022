@@ -223,7 +223,7 @@ main section:nth-child(even) article {
   border: 2px solid var(--aqua);
 }
 
-main section:nth-child(even) article img {
+.projectCardWrapper img {
   position: absolute;
   /* width: 100%; */
   width: 100%;
@@ -311,7 +311,6 @@ main section:nth-child(even) article:hover .greenfade {
 
 /* PROJECT CHIPS  */
 .codeVariations {
-  margin: 0.5rem 0;
   width: 90%;
 }
 
@@ -324,6 +323,7 @@ main section:nth-child(even) article:hover .greenfade {
   background: #ccc;
   padding: 0.2rem 0.6rem;
   margin-top: 0.3rem;
+  margin-right: 0.5rem;
   border-radius: 0.3rem;
   font-size: 80%;
 }
