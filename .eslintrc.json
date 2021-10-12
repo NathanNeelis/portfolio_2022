@@ -1,3 +1,43 @@
 {
-  "extends": "next/core-web-vitals"
+  "parser": "@typescript-eslint/parser",
+  "extends": ["plugin:@typescript-eslint/recommended", "standard-react"],
+  "plugins": ["jest", "react-hooks"],
+  "env": {
+      "browser": true,
+      "jest/globals": true
+  },
+  "rules": {
+      "max-len": 0,
+      "indent": ["error", 4],
+      "react/jsx-indent": ["error", 4],
+      "react/jsx-indent-props": ["error", 4],
+      "@typescript-eslint/indent": "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/member-delimiter-style": "off",
+      "@typescript-eslint/prefer-interface": "off",
+      "@typescript-eslint/explicit-member-accessibility": "off",
+      "lines-between-class-members": "off",
+      "react/jsx-filename-extension": "off",
+      "react/prop-types": "off",
+      "react/jsx-one-expression-per-line": "off",
+      "react/react-in-jsx-scope": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "off",
+      "import/no-unresolved": "off",
+      "import/prefer-default-export": "off",
+      "import/extensions": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
+      "react/no-did-update-set-state": "off"
+  },
+  "overrides": [
+      {
+          "files": ["*.js"],
+          "rules": {
+              "@typescript-eslint/no-var-requires": "off"
+          }
+      }
+  ],
+  "root": true
 }
