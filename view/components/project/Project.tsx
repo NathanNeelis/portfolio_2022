@@ -10,7 +10,7 @@ export default function Project(props: Props) {
     const { data } = props;
     const { fields } = data;
     const { title, slug, shortDescription, thumbnail, keywordChips } = fields;
-    console.log('project props', props)
+    // console.log('project props', props)
     return (
         <article className="projectCardWrapper">
             <a href="pages/article-typescript.html">

@@ -6,7 +6,6 @@ interface Props {
 
 export default function Projects(props: Props) {
     const { data } = props;
-    const { devProjects } = data;
 
     return (
         <section>
@@ -15,9 +14,8 @@ export default function Projects(props: Props) {
             </header>
 
             {/* webdev projects  */}
-            {devProjects.map(project => (
+            {data.map(project => (
                 <Project data={project} />
-                // <div key={project.sys.id}>{project.fields.title}</div>
             ))}
 
 

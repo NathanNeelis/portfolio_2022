@@ -13,23 +13,28 @@ export async function getStaticProps() {
     accessToken: process.env.CONTENTFUL_ACCES_TOKEN,
   })
 
-  const res = await client.getEntries({ content_type: "developmentProjects" })
+  const projects = await client.getEntries({ content_type: "developmentProjects" })
+  const intro = await client.getEntries({ content_type: "introduction" })
 
   return {
     props: {
-      devProjects: res.items,
+      devProjects: projects.items,
+      introduction: intro.items,
     }
   }
 }
 
 interface Props {
-  data: any;
+  devProjects: any;
+  introduction: any;
 }
 
 
-export default function Recipes(devProjects: Props) {
-  console.log(devProjects)
-
+export default function Recipes(props: Props) {
+  
+  const {devProjects, introduction} = props;
+  console.log('introduction', introduction)
+  console.log('projects', devProjects)
   return (
     <body>
       <HeadWrapper />
@@ -37,7 +42,7 @@ export default function Recipes(devProjects: Props) {
       <Header />
 
       <main>
-        <Introduction />
+        <Introduction data={introduction} />
         <Projects data={devProjects} />
       </main>
 
